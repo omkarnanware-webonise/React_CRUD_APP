@@ -2,11 +2,23 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import {Provider} from "react-redux";
+import {BrowserRouter} from "react-router-dom"
 import reportWebVitals from './reportWebVitals';
+import store from './redux/store';
+import ErrorBoundary from './pages/ErrorBoundary';
+
 
 ReactDOM.render(
+  
   <React.StrictMode>
+    <ErrorBoundary>
+    <BrowserRouter>
+    <Provider store={store}>
     <App />
+    </Provider>
+    </BrowserRouter>
+    </ErrorBoundary>
   </React.StrictMode>,
   document.getElementById('root')
 );
